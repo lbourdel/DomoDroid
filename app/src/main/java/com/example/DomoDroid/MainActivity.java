@@ -60,9 +60,11 @@ public class MainActivity extends AppCompatActivity {
 		}
 
 		Resources res = this.getResources();
-		String[] shoppingItems = res.getStringArray(R.array.http_get_VR);
 
-		String url = shoppingItems[ Index ];
+
+		String[] http_address = res.getStringArray(R.array.http_get_VR);
+
+		String url = res.getString(R.string.server_address)  + res.getStringArray(R.array.http_get_VR)[ Index ];
 
 		if (url.length()!=0) {
 			// Request a string response from the provided URL.

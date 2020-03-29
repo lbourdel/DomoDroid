@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">DomoDroid</string>
-    <string name="VR_prompt">Choisir un Volet</string>
-    <string name="user_greeting">Hello un Volet</string>
+    <string name="server_address">http://192.168.1.14</string>
     <string-array name="VR_array">
         <item>VR Haut Cuisine</item>
         <item>VR Salon</item>
@@ -20,43 +19,43 @@
     </string-array>
     <string-array name="http_get_VR">
         <!--VR Haut Cuisine-->
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x09&amp;data0=0x52</item>
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x08&amp;data0=0x52</item>
+        <!--domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x09&amp;data0=0x52-->
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x09&amp;data0=0x52</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x08&amp;data0=0x52</item>
 
         <!--VR Salon-->
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x0E&amp;data0=0x26</item>
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x0F&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x0E&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x0F&amp;data0=0x26</item>
 
         <!--VR Sdb1-->
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x0B&amp;data0=0x26</item>
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x00&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x0B&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x00&amp;data0=0x26</item>
 
         <!--VR Ch Parent-->
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x02&amp;data0=0x26</item>
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x03&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x02&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x03&amp;data0=0x26</item>
 
         <!--VR Ch Felix-->
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x07&amp;data0=0x26</item>
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x06&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x07&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x06&amp;data0=0x26</item>
 
         <!--VR Ch Victor Fixe -->
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x06&amp;data0=0x26</item>
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x07&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x06&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x07&amp;data0=0x26</item>
 
         <!--VR Ch Victor Ouvrant -->
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x01&amp;data0=0x26</item>
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x00&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x01&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x00&amp;data0=0x26</item>
 
         <!--VR Ch Jules Fixe-->
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x04&amp;data0=0x26</item>
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x03&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x04&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x03&amp;data0=0x26</item>
 
         <!--VR Ch Jules Terrasse-->
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x06&amp;data0=0x26</item>
-        <item>http://192.168.1.14/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x05&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x06&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x05&amp;data0=0x26</item>
 
     </string-array>
-
 
     <string-array name="Light_array">
         <item>Table Cuisine</item>
@@ -67,7 +66,6 @@
 
     </string-array>
     <string-array name="http_get_Light">
-
 
     </string-array>
 </resources>
