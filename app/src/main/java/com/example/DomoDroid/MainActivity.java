@@ -3,7 +3,6 @@ package com.example.DomoDroid;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -16,57 +15,37 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-	private Spinner spinner_vr;
-	private 	int Index=0;
 	public static int ActionId;
-	public RequestQueue volley_queue;
+	private RequestQueue volley_queue;
 
 	public void displayMsg(String str){
 		Toast.makeText(this, "Bouton cliqué : " + str, Toast.LENGTH_SHORT).show();
-	}
-
-	public void SetActionId(int _ActionId){
-		ActionId = _ActionId;
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		this.volley_queue = Volley.newRequestQueue( this.getApplicationContext() );
+		setTitle("Laurent BOURDEL");
 
+		volley_queue = Volley.newRequestQueue( this.getApplicationContext() );
 
 		addListenerOnSpinnerItemSelection();
 	}
 
 	public void addListenerOnSpinnerItemSelection(){
-		spinner_vr = (Spinner) findViewById(R.id.VR_spinner1);
+		Spinner spinner_vr = (Spinner) findViewById(R.id.VR_spinner1);
 
-		spinner_vr.setOnItemSelectedListener(new CustomOnItemSelectedListener(this, ActionId));
+		spinner_vr.setOnItemSelectedListener(new SpinnerOnItemSelectedListener(this));
 		spinner_vr.setSelection(2); // Select 3rd item
 	}
 
-	public void ListenerButtonClicked(View view) {
-		if (view.getId() == R.id.buttonUP) {
-			// buttonUP action
-			Index = ActionId*2;
-			displayMsg("UP" + ActionId);
-		} else if (view.getId() == R.id.buttonDOWN) {
-			//buttonDOWN action
-			Index = ActionId*2+1;
-			displayMsg("DOWN" + ActionId);
-		}
-
-		Resources res = this.getResources();
-
-
-		String[] http_address = res.getStringArray(R.array.http_get_VR);
-
-		String url = res.getString(R.string.server_address)  + res.getStringArray(R.array.http_get_VR)[ Index ];
-
-		if (url.length()!=0) {
+	public void send_http_socket(String url) {
+		if (url.length() != 0) {
 			// Request a string response from the provided URL.
 			StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
 					new Response.Listener<String>() {
@@ -84,9 +63,53 @@ public class MainActivity extends AppCompatActivity {
 						}
 					}
 			);
-// Add the request to the RequestQueue.
+			// Add the request to the RequestQueue.
 			volley_queue.add(stringRequest);
 		}
 	}
+	public void ListenerButtonClicked(View view) {
+		int Index_Spinner_VR = 0xFFFF;
+		int Index_Spinner_Light = 0xFFFF;
 
+		if (view.getId() == R.id.buttonUP) {
+			// buttonUP action
+			Index_Spinner_VR = ActionId*2;
+			displayMsg("UP" + ActionId);
+		} else if (view.getId() == R.id.buttonDOWN) {
+			//buttonDOWN action
+			Index_Spinner_VR = ActionId*2+1;
+			displayMsg("DOWN" + ActionId);
+		}
+		else if (view.getId() == R.id.button_ON) {
+		//buttonDOWN action
+			Index_Spinner_Light = ActionId*2+1;
+			displayMsg("ON" + ActionId);
+		}
+		else if (view.getId() == R.id.button_OFF) {
+		//buttonDOWN action
+			Index_Spinner_Light = ActionId*2+1;
+			displayMsg("OFF" + ActionId);
+		}
+
+		Resources res = this.getResources();
+		if (Index_Spinner_VR != 0xFFFF) {
+			String[] http_address = res.getStringArray(R.array.http_get_VR);
+
+			String url = res.getString(R.string.server_address) + res.getStringArray(R.array.http_get_VR)[Index_Spinner_VR];
+
+			send_http_socket(url);
+		}
+
+		if (Index_Spinner_Light != 0xFFFF) {
+			String[] http_address = res.getStringArray(R.array.http_get_Light);
+
+			// TO DO String url = res.getString(R.string.server_address) + res.getStringArray(R.array.http_get_VR)[Index_Spinner_Light];
+
+			// TO DO send_http_socket(url);
+		}
+	}
+
+	String getTime() {
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		return sdf.format(new Date());
 }
