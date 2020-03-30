@@ -11,11 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 // Spinner Listener : heritage from OnItemSelectedListener
-public class SpinnerOnItemSelectedListener extends Activity implements OnItemSelectedListener {
+public class SpinnerListenerVR extends Activity implements OnItemSelectedListener {
 	public Activity activity;
 
 	// Constructor
-	public SpinnerOnItemSelectedListener(Activity _activity){
+	public SpinnerListenerVR(Activity _activity){
 		this.activity = _activity;
 	}
 
@@ -23,19 +23,19 @@ public class SpinnerOnItemSelectedListener extends Activity implements OnItemSel
 		// An item was selected. You can retrieve the selected item using
 		// parent.getItemAtPosition(pos)
 		Toast.makeText(parent.getContext(),
-				"OnItemSelectedListener : " + parent.getItemAtPosition(pos).toString(),
+				"onItemSelectedVR : " + parent.getItemAtPosition(pos).toString(),
 				Toast.LENGTH_SHORT).show();
 
 		TextView helloTextView = (TextView)  this.activity.findViewById(R.id.Log_lbr);
 		helloTextView.setText(parent.getItemAtPosition(pos).toString());
 
-		MainActivity.ActionId = parent.getSelectedItemPosition();
+		MainActivity.ActionId_light = parent.getSelectedItemPosition();
 	}
 
 	public void onNothingSelected(AdapterView<?> parent) {
 		// Another interface callback
 		Toast.makeText(parent.getContext(),
-				"OnItemSelectedListener : " + "LBR",
+				"onNothingSelectedVR : " + "LBR",
 				Toast.LENGTH_SHORT).show();
 	}
 }

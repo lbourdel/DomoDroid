@@ -33,31 +33,29 @@
         android:id="@+id/buttonUP"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:onClick="ListenerButtonClicked"
         android:text="@string/label_up"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VR_spinner1" />
+        app:layout_constraintTop_toBottomOf="@+id/Log_lbr" />
 
     <Button
         android:id="@+id/buttonDOWN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
         android:onClick="ListenerButtonClicked"
         android:text="@string/label_down"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VR_spinner1" />
+        app:layout_constraintTop_toBottomOf="@+id/Log_lbr" />
 
     <Spinner
         android:id="@+id/spinner_Light"
         android:layout_width="256dp"
         android:layout_height="45dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="52dp"
         android:entries="@array/Light_array"
         android:entryValues="@array/http_get_Light"
         android:textAlignment="center"
@@ -71,23 +69,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="68dp"
         android:onClick="ListenerButtonClicked"
         android:text="@string/label_off"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_Light" />
+        app:layout_constraintTop_toTopOf="@+id/spinner_Light" />
 
     <Button
         android:id="@+id/button_ON"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         android:onClick="ListenerButtonClicked"
         android:text="@string/label_on"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_Light" />
+        app:layout_constraintTop_toTopOf="@+id/spinner_Light" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

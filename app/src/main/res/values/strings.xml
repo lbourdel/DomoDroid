@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">DomoDroid</string>
     <string name="server_address">http://192.168.1.14</string>
+    <string name="label_on">ON</string>
+    <string name="label_off">OFF</string>
+    <string name="label_down">Down</string>
+    <string name="label_up">UP</string>
     <string-array name="VR_array">
         <item>VR Haut Cuisine</item>
         <item>VR Salon</item>

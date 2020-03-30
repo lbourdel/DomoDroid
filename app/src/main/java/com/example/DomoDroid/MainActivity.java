@@ -19,10 +19,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-	public static int ActionId;
+	public static int ActionId_VR, ActionId_light;
 	private RequestQueue volley_queue;
 
-	public void displayMsg(String str){
+	public void displayMsg(String str) {
 		Toast.makeText(this, "Bouton cliqué : " + str, Toast.LENGTH_SHORT).show();
 	}
 
@@ -30,18 +30,26 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		setTitle("Laurent BOURDEL");
+		setTitle("Laurent BOURDEL - DomoDroid");
 
-		volley_queue = Volley.newRequestQueue( this.getApplicationContext() );
+		volley_queue = Volley.newRequestQueue(this.getApplicationContext());
 
-		addListenerOnSpinnerItemSelection();
+		addListenerOnSpinnerVR();
+		addListenerOnSpinnerLight();
 	}
 
-	public void addListenerOnSpinnerItemSelection(){
+	public void addListenerOnSpinnerVR() {
 		Spinner spinner_vr = (Spinner) findViewById(R.id.VR_spinner1);
 
-		spinner_vr.setOnItemSelectedListener(new SpinnerOnItemSelectedListener(this));
+		spinner_vr.setOnItemSelectedListener(new SpinnerListenerVR(this));
 		spinner_vr.setSelection(2); // Select 3rd item
+	}
+
+	public void addListenerOnSpinnerLight() {
+		Spinner spinner_light = (Spinner) findViewById(R.id.spinner_Light);
+
+		spinner_light.setOnItemSelectedListener(new SpinnerListenerLight(this));
+		spinner_light.setSelection(2); // Select 3rd item
 	}
 
 	public void send_http_socket(String url) {
@@ -67,28 +75,27 @@ public class MainActivity extends AppCompatActivity {
 			volley_queue.add(stringRequest);
 		}
 	}
+
 	public void ListenerButtonClicked(View view) {
 		int Index_Spinner_VR = 0xFFFF;
 		int Index_Spinner_Light = 0xFFFF;
 
 		if (view.getId() == R.id.buttonUP) {
 			// buttonUP action
-			Index_Spinner_VR = ActionId*2;
-			displayMsg("UP" + ActionId);
+			Index_Spinner_VR = ActionId_VR * 2;
+			displayMsg("UP" + ActionId_VR);
 		} else if (view.getId() == R.id.buttonDOWN) {
 			//buttonDOWN action
-			Index_Spinner_VR = ActionId*2+1;
-			displayMsg("DOWN" + ActionId);
-		}
-		else if (view.getId() == R.id.button_ON) {
-		//buttonDOWN action
-			Index_Spinner_Light = ActionId*2+1;
-			displayMsg("ON" + ActionId);
-		}
-		else if (view.getId() == R.id.button_OFF) {
-		//buttonDOWN action
-			Index_Spinner_Light = ActionId*2+1;
-			displayMsg("OFF" + ActionId);
+			Index_Spinner_VR = ActionId_VR * 2 + 1;
+			displayMsg("DOWN" + ActionId_VR);
+		} else if (view.getId() == R.id.button_ON) {
+			//buttonDOWN action
+			Index_Spinner_Light = ActionId_light * 2 + 1;
+			displayMsg("ON" + ActionId_light);
+		} else if (view.getId() == R.id.button_OFF) {
+			//buttonDOWN action
+			Index_Spinner_Light = ActionId_light * 2 + 1;
+			displayMsg("OFF" + ActionId_light);
 		}
 
 		Resources res = this.getResources();
@@ -112,4 +119,5 @@ public class MainActivity extends AppCompatActivity {
 	String getTime() {
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 		return sdf.format(new Date());
+	}
 }
