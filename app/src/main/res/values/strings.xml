@@ -58,18 +58,61 @@
         <!--VR Ch Jules Terrasse-->
         <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x06&amp;data0=0x26</item>
         <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x05&amp;data0=0x26</item>
-
     </string-array>
 
     <string-array name="Light_array">
-        <item>Table Cuisine</item>
-        <item>Plan de travail Cuisine</item>
         <item>Salon</item>
-        <item>Chambre Parents</item>
-
-
+        <item>Sejour</item>
+        <item>Cuisine</item>
+        <item>Cuisine Fenetre</item>
+        <item>Parent Lit Emma</item>
+        <item>Parent Lit Laurent</item>
+        <item>Parent</item>
+        <item>Sdb Parent</item>
+        <item>Toilette Parent</item>
+        <item>Chambre Victor</item>
     </string-array>
+
     <string-array name="http_get_Light">
+        <!--Light Salon-->
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x0D&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x0D&amp;data0=0x26</item>
+
+        <!--Light Sejour-->
+        <item>/domocan/www/php/CmdVR.php?carte=0x08&amp;entree=0x03&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x08&amp;entree=0x03&amp;data0=0x26</item>
+
+        <!--Light Cuisine-->
+        <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x0D&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x0D&amp;data0=0x26</item>
+
+        <!--Light Cuisine Fenetre-->
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x0A&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x0B&amp;data0=0x26</item>
+
+        <!--Light Parent Lit Emma-->
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x00&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x02&amp;data0=0x26</item>
+
+        <!--Light Parent Lit Laurent-->
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x01&amp;data0=0x22</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x03&amp;data0=0x22</item>
+
+        <!--Light Parent -->
+        <item>/domocan/www/php/CmdVR.php?carte=0x03&amp;entree=0x0A&amp;data0=0x22</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x03&amp;entree=0x0A&amp;data0=0x26</item>
+
+        <!--Light Sdb Parent -->
+        <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x08&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x08&amp;data0=0x26</item>
+
+        <!--Light Toilette Parent -->
+        <item>/domocan/www/php/CmdVR.php?carte=0x08&amp;entree=0x0E&amp;data0=0x26</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x08&amp;entree=0x0E&amp;data0=0x26</item>
+
+        <!--Light Victor -->
+        <item>/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x24&amp;data0=0x5F</item>
+        <item>/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x24&amp;data0=0x5F</item>
 
     </string-array>
 </resources>

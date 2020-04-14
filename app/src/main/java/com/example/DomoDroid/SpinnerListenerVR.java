@@ -23,13 +23,13 @@ public class SpinnerListenerVR extends Activity implements OnItemSelectedListene
 		// An item was selected. You can retrieve the selected item using
 		// parent.getItemAtPosition(pos)
 		Toast.makeText(parent.getContext(),
-				"onItemSelectedVR : " + parent.getItemAtPosition(pos).toString(),
+				"SelectedVR : " + parent.getItemAtPosition(pos).toString(),
 				Toast.LENGTH_SHORT).show();
 
 		TextView helloTextView = (TextView)  this.activity.findViewById(R.id.Log_lbr);
 		helloTextView.setText(parent.getItemAtPosition(pos).toString());
 
-		MainActivity.ActionId_light = parent.getSelectedItemPosition();
+		MainActivity.ActionId_VR = parent.getSelectedItemPosition();
 	}
 
 	public void onNothingSelected(AdapterView<?> parent) {

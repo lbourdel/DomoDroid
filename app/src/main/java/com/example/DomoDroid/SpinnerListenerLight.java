@@ -20,7 +20,7 @@ public class SpinnerListenerLight extends Activity implements OnItemSelectedList
 		// An item was selected. You can retrieve the selected item using
 		// parent.getItemAtPosition(pos)
 		Toast.makeText(parent.getContext(),
-				"onItemSelectedLight : " + parent.getItemAtPosition(pos).toString(),
+				"SelectedLight : " + parent.getItemAtPosition(pos).toString(),
 				Toast.LENGTH_SHORT).show();
 
 		TextView helloTextView = (TextView)  this.activity.findViewById(R.id.Log_lbr);

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 	private RequestQueue volley_queue;
 
 	public void displayMsg(String str) {
-		Toast.makeText(this, "Bouton cliqué : " + str, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this,  str, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -60,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
 						@Override
 						public void onResponse(String response) {
 							// Display the first 500 characters of the response string.
-							displayMsg("Response is: " + response.substring(0, 10));
+							String split_str[] = response.split("LBR");
+							String splitafter = split_str[split_str.length-1];
+							displayMsg("Response is: " + splitafter);
 						}
 					},
 
@@ -79,40 +81,43 @@ public class MainActivity extends AppCompatActivity {
 	public void ListenerButtonClicked(View view) {
 		int Index_Spinner_VR = 0xFFFF;
 		int Index_Spinner_Light = 0xFFFF;
+		String url;
+		String split_str[];
+		String splitafter;
 
 		if (view.getId() == R.id.buttonUP) {
 			// buttonUP action
 			Index_Spinner_VR = ActionId_VR * 2;
-			displayMsg("UP" + ActionId_VR);
 		} else if (view.getId() == R.id.buttonDOWN) {
 			//buttonDOWN action
 			Index_Spinner_VR = ActionId_VR * 2 + 1;
-			displayMsg("DOWN" + ActionId_VR);
 		} else if (view.getId() == R.id.button_ON) {
-			//buttonDOWN action
-			Index_Spinner_Light = ActionId_light * 2 + 1;
-			displayMsg("ON" + ActionId_light);
+			//buttonUp action
+			Index_Spinner_Light = ActionId_light * 2;
 		} else if (view.getId() == R.id.button_OFF) {
 			//buttonDOWN action
 			Index_Spinner_Light = ActionId_light * 2 + 1;
-			displayMsg("OFF" + ActionId_light);
 		}
 
 		Resources res = this.getResources();
 		if (Index_Spinner_VR != 0xFFFF) {
 			String[] http_address = res.getStringArray(R.array.http_get_VR);
 
-			String url = res.getString(R.string.server_address) + res.getStringArray(R.array.http_get_VR)[Index_Spinner_VR];
-
+			url = res.getString(R.string.server_address) + res.getStringArray(R.array.http_get_VR)[Index_Spinner_VR];
+			split_str = url.split("[?]");
+			splitafter = split_str[split_str.length-1];
+			displayMsg(splitafter);
 			send_http_socket(url);
 		}
 
 		if (Index_Spinner_Light != 0xFFFF) {
 			String[] http_address = res.getStringArray(R.array.http_get_Light);
 
-			// TO DO String url = res.getString(R.string.server_address) + res.getStringArray(R.array.http_get_VR)[Index_Spinner_Light];
-
-			// TO DO send_http_socket(url);
+			url = res.getString(R.string.server_address) + res.getStringArray(R.array.http_get_Light)[Index_Spinner_Light];
+			split_str = url.split("[?]");
+			splitafter = split_str[split_str.length-1];
+			displayMsg(splitafter);
+			send_http_socket(url);
 		}
 	}
 
