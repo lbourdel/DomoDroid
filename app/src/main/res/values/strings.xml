@@ -12,14 +12,14 @@
         <item>VR Sdb1</item>
         <item>VR Ch Parent</item>
 
-        <item>VR Ch Felix</item>
-        <item>VR Sdb2</item>
+        <item>VR Ch Gustave</item>
+        <item>VR Sdb Parent</item>
 
         <item>VR Ch Victor Fixe</item>
         <item>VR Ch Victor Ouvrant</item>
 
-        <item>VR Ch Jules Fixe</item>
-        <item>VR Ch Jules Terrasse</item>
+        <item>VR Ch Felix Fixe</item>
+        <item>VR Ch Felix Terrasse</item>
     </string-array>
 
     <string-array name="http_get_VR">
@@ -40,7 +40,7 @@
         <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x02&amp;data0=0x26</item>
         <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x03&amp;data0=0x26</item>
 
-        <!--VR Ch Felix-->
+        <!--VR Ch Gustave-->
         <!--
         <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x07&amp;data0=0x26</item>
         <item>/domocan/www/php/CmdVR.php?carte=0x02&amp;entree=0x06&amp;data0=0x26</item>
@@ -48,7 +48,7 @@
         <item>/domocan/www/php/CmdVRnew.php?carte=10&amp;sortie=8&amp;consigne=50</item>
         <item>/domocan/www/php/CmdVRnew.php?carte=10&amp;sortie=9&amp;consigne=50</item>
 
-        <!--VR Sdb2-->
+        <!--VR Sdb Parent-->
         <item>/domocan/www/php/CmdVRnew.php?carte=10&amp;sortie=14&amp;consigne=50</item>
         <item>/domocan/www/php/CmdVRnew.php?carte=10&amp;sortie=15&amp;consigne=50</item>
 
@@ -60,11 +60,11 @@
         <item>/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x01&amp;data0=0x26</item>
         <item>/domocan/www/php/CmdVR.php?carte=0x04&amp;entree=0x00&amp;data0=0x26</item>
 
-        <!--VR Ch Jules Fixe-->
+        <!--VR Ch Felix Fixe-->
         <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x04&amp;data0=0x26</item>
         <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x03&amp;data0=0x26</item>
 
-        <!--VR Ch Jules Terrasse-->
+        <!--VR Ch Felix Terrasse-->
         <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x06&amp;data0=0x26</item>
         <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x05&amp;data0=0x26</item>
     </string-array>

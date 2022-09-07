@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 	private RequestQueue volley_queue;
 	public String url_to_request="";
 	public String url_to_stop="";
-	public boolean VR_Felix_InAction = false;
+	public boolean VR_Gustave_InAction = false;
 	public boolean VR_Sdb2_InAction = false;
 	public String split_str[];
 	public String splitafter;
@@ -123,15 +123,15 @@ public class MainActivity extends AppCompatActivity {
 				url_to_stop = split_str[0] + "consigne=0";
 				switch ( res.getStringArray(R.array.VR_array)[ActionId_VR] )
 				{
-					case "VR Ch Felix":
-						if (VR_Felix_InAction==false ) {
-							VR_Felix_InAction = true;
+					case "VR Ch Gustave":
+						if (VR_Gustave_InAction==false ) {
+							VR_Gustave_InAction = true;
 							handler_VR =  new Handler();
 							myRunnable_VR_Felix = new Runnable(){
 								@Override
 								public void run() {
 									displayMsg("We can stop all VRs now !!");
-									VR_Felix_InAction = false;
+									VR_Gustave_InAction = false;
 									send_http_socket(url_to_stop);
 								}
 							};
