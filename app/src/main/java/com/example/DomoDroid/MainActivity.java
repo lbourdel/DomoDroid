@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 	private RequestQueue volley_queue;
 	public String url_to_request="";
 	public String url_to_stop="";
+	public boolean VR_Garage_InAction = false;
 	public boolean VR_Gustave_InAction = false;
 	public boolean VR_Sdb2_InAction = false;
 	public String split_str[];
@@ -32,8 +33,11 @@ public class MainActivity extends AppCompatActivity {
 	public void displayMsg(String str) {
 		Toast.makeText(this,  str, Toast.LENGTH_SHORT).show();
 	}
-	public Handler handler_VR =  null;
-	public Runnable myRunnable_VR_Felix = null;
+	public Handler handler_VR_Ch_Gustave =  null;
+	public Handler handler_VR_SDB2 =  null;
+	public Handler handler_Light =  null;
+	public Runnable myRunnable_Light_Garage = null;
+	public Runnable myRunnable_VR_Gustave = null;
 	public Runnable myRunnable_VR_Sdb2 = null;
 
 	@Override
@@ -109,12 +113,17 @@ public class MainActivity extends AppCompatActivity {
 			//buttonUp action
 			Index_Spinner_Light = ActionId_light * 2;
 		} else if (view.getId() == R.id.button_OFF) {
-			//buttonDOWN action
+			//buttonOff action
 			Index_Spinner_Light = ActionId_light * 2 + 1;
+		} else if (view.getId() == R.id.button_Garage) {
+			//buttonGarage action
+			Index_Spinner_Light = 22;
 		}
 
 		Resources res = this.getResources();
+
 		if (Index_Spinner_VR != 0xFFFF) {
+			
 			String[] http_address = res.getStringArray(R.array.http_get_VR);
 
 			url_to_request = res.getString(R.string.server_address) + res.getStringArray(R.array.http_get_VR)[Index_Spinner_VR];
@@ -123,11 +132,11 @@ public class MainActivity extends AppCompatActivity {
 				url_to_stop = split_str[0] + "consigne=0";
 				switch ( res.getStringArray(R.array.VR_array)[ActionId_VR] )
 				{
-					case "VR Ch Gustave":
+					case "VR Ch Gustave": 
 						if (VR_Gustave_InAction==false ) {
 							VR_Gustave_InAction = true;
-							handler_VR =  new Handler();
-							myRunnable_VR_Felix = new Runnable(){
+							handler_VR_Ch_Gustave =  new Handler();
+							myRunnable_VR_Gustave = new Runnable(){
 								@Override
 								public void run() {
 									displayMsg("We can stop all VRs now !!");
@@ -135,23 +144,23 @@ public class MainActivity extends AppCompatActivity {
 									send_http_socket(url_to_stop);
 								}
 							};
-							handler_VR.postDelayed( myRunnable_VR_Felix , 20000);
+							handler_VR_Ch_Gustave.postDelayed( myRunnable_VR_Gustave , 20000);
 						}
 						else
 						{
 							// Stop Shutter immediately
 							displayMsg("We can stop all VRs immediately !!");
 							url_to_request = "";
-							myRunnable_VR_Felix.run();
-							handler_VR.removeCallbacks(myRunnable_VR_Felix);
+							myRunnable_VR_Gustave.run();
+							handler_VR_Ch_Gustave.removeCallbacks(myRunnable_VR_Gustave);
 							/*VR_Felix_InAction = false;
 							send_http_socket(url_to_stop);*/
-						}
-						;
+						};
+						break;
 					case "VR Sdb2":
 						if (VR_Sdb2_InAction==false ) {
 							VR_Sdb2_InAction = true;
-							handler_VR =  new Handler();
+							handler_VR_SDB2 =  new Handler();
 							myRunnable_VR_Sdb2 = new Runnable(){
 								@Override
 								public void run() {
@@ -160,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 									send_http_socket(url_to_stop);
 								}
 							};
-							handler_VR.postDelayed( myRunnable_VR_Sdb2 , 10000);
+							handler_VR_SDB2.postDelayed( myRunnable_VR_Sdb2 , 10000);
 						}
 						else
 						{
@@ -168,11 +177,12 @@ public class MainActivity extends AppCompatActivity {
 							displayMsg("We can stop all VRs immediately !!");
 							url_to_request = "";
 							myRunnable_VR_Sdb2.run();
-							handler_VR.removeCallbacks(myRunnable_VR_Sdb2);
+							handler_VR_SDB2.removeCallbacks(myRunnable_VR_Sdb2);
 							/*VR_Sdb2_InAction = false;
 							send_http_socket(url_to_stop);*/
 						}
 						;
+						break;
 					default:
 						;
 				}
@@ -197,9 +207,36 @@ public class MainActivity extends AppCompatActivity {
 			}
 
 
-			String[] http_address = res.getStringArray(R.array.http_get_Light);
 
 			url_to_request = res.getString(R.string.server_address) + res.getStringArray(R.array.http_get_Light)[Index_Spinner_Light];
+
+			split_str = url_to_request.split("consigne=");
+			if(split_str.length==2) {
+				if (view.getId() == R.id.button_Garage) {
+					url_to_stop = split_str[0] + "consigne=0";
+					if (VR_Garage_InAction == false) {
+						VR_Garage_InAction = true;
+						handler_Light = new Handler();
+						myRunnable_Light_Garage = new Runnable() {
+							@Override
+							public void run() {
+								displayMsg("We can stop all VRs now !!");
+								VR_Garage_InAction = false;
+								send_http_socket(url_to_stop);
+							}
+						};
+						handler_Light.postDelayed(myRunnable_Light_Garage, 1000);
+					} else {
+						// Stop Shutter immediately
+						displayMsg("We can stop all VRs immediately !!");
+						url_to_request = "";
+						myRunnable_Light_Garage.run();
+						handler_Light.removeCallbacks(myRunnable_Light_Garage);
+							/*VR_Felix_InAction = false;
+							send_http_socket(url_to_stop);*/
+					}
+				}
+				}
 			send_http_socket(url_to_request);
 		}
 	}

@@ -5,6 +5,7 @@
     <string name="label_off">OFF</string>
     <string name="label_down">Down</string>
     <string name="label_up">UP</string>
+    <string name="Label_Garage">Garage</string>
 
     <string-array name="VR_array">
         <item>VR Haut Cuisine</item>
@@ -20,6 +21,7 @@
 
         <item>VR Ch Felix Fixe</item>
         <item>VR Ch Felix Terrasse</item>
+
     </string-array>
 
     <string-array name="http_get_VR">
@@ -69,7 +71,7 @@
         <item>/domocan/www/php/CmdVR.php?carte=0x0A&amp;entree=0x05&amp;data0=0x26</item>
     </string-array>
 
-    <string-array name="VR_Felix">
+    <string-array name="VR_Gustave">
         <item name="url_up">/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x09&amp;data0=0x52</item>
         <item name="tempo_up">15000</item>
         <item name="url_down">/domocan/www/php/CmdVR.php?carte=0x06&amp;entree=0x08&amp;data0=0x52</item>
@@ -84,7 +86,7 @@
     </string-array>
 
     <string-array name="test_laurent">
-        <item>@array/VR_Felix</item>
+        <item>@array/VR_Gustave</item>
         <item>@array/VR_Victor</item>
     </string-array>
 
@@ -100,6 +102,7 @@
         <item>Toilette Parent</item>
         <item>Chambre Victor</item>
         <item>Chambre Felix</item>
+        <item>Garage</item>
     </string-array>
 
     <string-array name="http_get_Light">
@@ -147,5 +150,7 @@
         <item>/domocan/www/php/CmdVRnew.php?carte=9&amp;sortie=4&amp;consigne=50</item>
         <item>/domocan/www/php/CmdVRnew.php?carte=9&amp;sortie=4&amp;consigne=0</item>
 
+        <!--Garage -->
+        <item>/domocan/www/php/CmdVRnew.php?carte=12&amp;sortie=13&amp;consigne=50</item>
     </string-array>
 </resources>

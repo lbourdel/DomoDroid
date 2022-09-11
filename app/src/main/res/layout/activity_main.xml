@@ -89,5 +89,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_Light" />
 
+    <Button
+        android:id="@+id/button_Garage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginLeft="157dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginRight="167dp"
+        android:onClick="ListenerButtonClicked"
+        android:text="@string/Label_Garage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_Light" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
